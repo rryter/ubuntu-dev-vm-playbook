@@ -1,0 +1,14 @@
+- name: "[NPM] Retrieve Facts"
+  shell: "echo $SHELL"
+  register: default_shell
+  # changed when determines when will this task be considered changed when running
+  # ansible. In this case, we want it to always be false, as we are just
+  # retrieving information.
+  changed_when: False
+  sudo: no
+# - name: "[NPM] Install 'spaceship-prompt' globally."
+#   npm:
+#     name: spaceship-prompt
+#     global: yes
+#     executable: /home/rryter/.nvm/versions/node/v12.16.2/bin/npm
+#   sudo: no

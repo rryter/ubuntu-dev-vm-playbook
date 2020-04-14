@@ -1,0 +1,8 @@
+- name: "[GIT] Create configs"
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{dotfiles_user_home}}/{{ item }}"
+  with_items:
+    - .gitconfig
+    - .gitconfig-twy
+    - .gitconfig-mobi

@@ -1,0 +1,16 @@
+[includeIf "gitdir:~/Projects/TWY/"]
+  path = .gitconfig-twy
+[includeIf "gitdir:~/Projects/Mobi/"]
+  path = .gitconfig-mobi
+[credential]
+  helper = "netrc -f ~/.credentials.gpg"
+[rebase]
+  autoStash = true
+[pull]
+  rebase = true
+[branch]
+  autosetuprebase = always
+[core]
+  editor = code-insiders --wait --reuse-window
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

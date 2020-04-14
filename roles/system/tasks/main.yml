@@ -1,0 +1,11 @@
+# This is a task. Basically, it needs a module command. In this example, it
+# also have a `name`, which will be displayed while running the task to give a
+# better description of the running task.
+- name: "[System] Install Essentials"
+  # apt is our module. It installs debian packages. Here we are passing an
+  # `` variable, which is the item from `with_items`
+  apt:
+    pkg:
+      - zsh
+      - ssh
+      - git
