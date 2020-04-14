@@ -3,7 +3,7 @@
 [includeIf "gitdir:~/Projects/Mobi/"]
   path = .gitconfig-mobi
 [credential]
-  helper = "netrc -f ~/.credentials.gpg"
+  helper = "netrc -g gpg2 -f ~/.credentials.gpg"
 [rebase]
   autoStash = true
 [pull]
