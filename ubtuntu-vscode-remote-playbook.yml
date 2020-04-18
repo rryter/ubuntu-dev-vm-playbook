@@ -1,32 +1,28 @@
 ---
 # the host in which the playbook will be run
-- hosts: localhost
-  # in this example, we using a localhost, so this is needed
-  connection: local
+- hosts:
+    - ibm
 
-  # the target user Ansible will impersonate when provisioning
-  user: rryter
-
-  # this makes all tasks run with sudo by default
   become: yes
-
+  # the target user Ansible will impersonate when provisioning
   vars:
-    dotfiles_user_home: "/home/rryter"
+    dotfiles_user_home: "/root"
     proxy:
-      addr: 192.168.0.169
-      port: 3128
+      addr: localhost
+      port: 1337
   # roles are a way to group tasks; they will run in the sequence determined here
   roles:
     - system
-    - oefenweb.yarn
+    #- oefenweb.yarn
     - pgkehle.proxy-setup
     - role: moviedo.nvm
-      nvm_user: rryter
+      nvm_user: "{{ ansible_user }}"
+      nvm_working_path: "{{ dotfiles_user_home }}"
     - git
     - npm
     - cypress
     - chrome
-    - zsh
+    - fish
   # environment:
   #   http_proxy: http://192.168.0.169:3128
   #   https_proxy: http://192.168.0.169:3128

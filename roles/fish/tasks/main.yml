@@ -1,0 +1,12 @@
+- apt_repository:
+    repo: "ppa:nginx/stable"
+
+- name: "[Fish] update apt"
+  become: yes
+  apt: update_cache=yes
+
+- name: "[Fish] install"
+  become: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - fish

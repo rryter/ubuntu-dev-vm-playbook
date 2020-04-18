@@ -1,0 +1,12 @@
+vs-code-vms:
+  hosts:
+    ibm:
+      ansible_connection: ssh
+      ansible_ssh_host: neo.twy-vscode.cloud
+      ansible_user: root
+      ansible_port: 22
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+      ansible_python_interpreter: /usr/bin/python3
+    localhost:
+      ansible_connection: local
+      ansible_user: rryter

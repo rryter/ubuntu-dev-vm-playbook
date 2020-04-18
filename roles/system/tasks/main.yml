@@ -1,11 +1,12 @@
-# This is a task. Basically, it needs a module command. In this example, it
-# also have a `name`, which will be displayed while running the task to give a
-# better description of the running task.
+# - openssh_keypair:
+#     path: "{{ dotfiles_user_home }}/.ssh/id_ssh_ed25519"
+#     type: ed25519
+#     comment: vs-code@ibm
+
 - name: "[System] Install Essentials"
   # apt is our module. It installs debian packages. Here we are passing an
   # `` variable, which is the item from `with_items`
   apt:
     pkg:
-      - zsh
-      - ssh
       - git
+      - vim

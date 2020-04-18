@@ -5,7 +5,7 @@
   # ansible. In this case, we want it to always be false, as we are just
   # retrieving information.
   changed_when: False
-  sudo: no
+  become: no
 # - name: "[NPM] Install 'spaceship-prompt' globally."
 #   npm:
 #     name: spaceship-prompt
