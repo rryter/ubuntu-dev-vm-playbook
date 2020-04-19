@@ -7,7 +7,7 @@
 
 - name: "[Chrome] add gogle repository"
   become: yes
-  command: sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+  command: sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 - name: "[Chrome] update apt"
   become: yes
