@@ -1,12 +1,6 @@
-# - openssh_keypair:
-#     path: "{{ dotfiles_user_home }}/.ssh/id_ssh_ed25519"
-#     type: ed25519
-#     comment: vs-code@ibm
-
 - name: "[System] Install Essentials"
-  # apt is our module. It installs debian packages. Here we are passing an
-  # `` variable, which is the item from `with_items`
   apt:
-    pkg:
-      - git
-      - vim
+    apt: pkg={{ item }} state=latest
+  with_items:
+    - git
+    - vim
