@@ -1,6 +1,5 @@
 - name: "[System] Install Essentials"
-  apt:
-    apt: pkg={{ item }} state=latest
+  apt: pkg={{ item }} state=latest
   with_items:
     - git
     - vim

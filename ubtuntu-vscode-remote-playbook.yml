@@ -9,7 +9,7 @@
     dotfiles_user_home: "/home/rryter"
     proxy:
       addr: localhost
-      port: 3128
+      port: 5050
   # roles are a way to group tasks; they will run in the sequence determined here
   roles:
     - system
