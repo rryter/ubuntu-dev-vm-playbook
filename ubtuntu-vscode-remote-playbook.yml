@@ -14,11 +14,7 @@
   roles:
     - system
     - pgkehle.proxy-setup
-    #- role: moviedo.nvm
-    #  nvm_user: "{{ ansible_user }}"
-    #  nvm_working_path: "{{ dotfiles_user_home }}"
     - git
-    - npm
     - cypress
     - chrome
     - fish
