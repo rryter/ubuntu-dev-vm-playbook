@@ -3,3 +3,21 @@
   with_items:
     - git
     - vim
+
+- name: "[System] Retrieve Facts"
+  shell: "which npm"
+  register: npm_path
+  changed_when: False
+  become: no
+
+- name: "[System] install cfproxy"
+  npm:
+    name: "@twy-gmbh/conditional-forward-proxy"
+    global: yes
+    executable: "{{  npm_path }}"
+    state: latest
+
+- name: "[System] install cfproxy as a service"
+  template: src=cfproxy.j2 dest=/etc/systemd/system/cfproxy.service
+- name: "[System] s:wtart cfproxy"
+  systemd: state=started name=cfproxy.service daemon_reload=yes

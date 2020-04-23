@@ -1,20 +1,17 @@
 ---
-# the host in which the playbook will be run
 - hosts:
     - ibm
 
   become: yes
-  # the target user Ansible will impersonate when provisioning
   vars:
     dotfiles_user_home: "/home/rryter"
     proxy:
       addr: localhost
       port: 5050
-  # roles are a way to group tasks; they will run in the sequence determined here
   roles:
     - system
-    - pgkehle.proxy-setup
     - git
+    - fish
     - cypress
     - chrome
-    - fish
+    - pgkehle.proxy-setup

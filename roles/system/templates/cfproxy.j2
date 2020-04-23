@@ -1,0 +1,15 @@
+[Unit]
+Description=Conditional HTTP/HTTPS Proxy
+
+[Service]
+ExecStart=/home/rryter/.nvm/versions/node/v14.0.0/bin/node /home/rryter/.config/nvm/13.13.0/bin/cfproxy -p 5050 -ri 127.0.0.1 -rp 3128
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=conditional-forward-proxy
+User=rryter
+Environment=NODE_ENV=production PORT=5050
+
+[Install]
+WantedBy=multi-user.target

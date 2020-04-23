@@ -1,5 +1,5 @@
 - apt_repository:
-    repo: "ppa:nginx/stable"
+    repo: "ppa:fish-shell/release-3"
 
 - name: "[Fish] update apt"
   become: yes
@@ -10,3 +10,5 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - fish
+- name: [Fish] customizing
+  - shell: 
