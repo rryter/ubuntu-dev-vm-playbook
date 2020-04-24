@@ -1,18 +1,48 @@
 - apt_repository:
     repo: "ppa:fish-shell/release-3"
 
-- name: "[Fish] update apt"
+- name: "update apt"
   become: yes
   apt: update_cache=yes
 
-- name: "[Fish] install"
+- name: "install"
   become: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - fish
+  apt:
+    pkg:
+      - fish
+    state: latest
 
-- name: "[Fish] Copy custom fish files."
-  synchronize:
-    src: templates
-    dest: "{{dotfiles_user_home}}/.config/fish"
-    dirs: yes
+- name: "Retrieve Facts"
+  command: "fish -c echo 'Hello'"
+
+- name: "Creates conf directory"
+  file:
+    path: "{{dotfiles_user_home}}/.config/fish/conf.d"
+    state: directory
+    owner: rryter
+    group: rryter
+    mode: 0775
+
+- name: "Copy custom fish files."
+  copy:
+    src: fish/fishfile
+    dest: "{{dotfiles_user_home}}/.config/fish/fishfile"
+    owner: rryter
+    group: rryter
+    mode: "0744"
+
+- name: "Copy custom fish files."
+  copy:
+    src: fish/config.fish
+    dest: "{{dotfiles_user_home}}/.config/fish/config.fish"
+    owner: rryter
+    group: rryter
+    mode: "0744"
+
+- name: "Copy custom fish files."
+  copy:
+    src: fish/conf.d/gpg-agent.fish
+    dest: "{{dotfiles_user_home}}/.config/fish/conf.d/gpg-agent.fish"
+    owner: rryter
+    group: rryter
+    mode: "0744"

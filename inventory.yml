@@ -7,6 +7,10 @@ vs-code-vms:
       ansible_port: 22
       ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
       ansible_python_interpreter: /usr/bin/python3
-    localhost:
-      ansible_connection: local
+    vm:
+      ansible_connection: ssh
+      ansible_ssh_host: 192.168.0.222
       ansible_user: rryter
+      ansible_port: 22
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+      ansible_python_interpreter: /usr/bin/python3

@@ -1,26 +1,9 @@
-- name: "[System] Install Essentials"
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - git
-    - vim
-    - python3-dev
-    - python3-pip
-    - python3-setuptools
-
-- name: "[System] Retrieve Facts"
-  shell: "which npm"
-  register: npm_path
-  changed_when: False
-  become: no
-
-- name: "[System] install cfproxy"
-  npm:
-    name: "@twy-gmbh/conditional-forward-proxy"
-    global: yes
-    executable: "{{  npm_path }}"
+- name: "Install Essentials"
+  apt:
+    pkg:
+      - git
+      - vim
+      - python3-dev
+      - python3-pip
+      - python3-setuptools
     state: latest
-
-- name: "[System] install cfproxy as a service"
-  template: src=cfproxy.j2 dest=/etc/systemd/system/cfproxy.service
-- name: "[System] s:wtart cfproxy"
-  systemd: state=started name=cfproxy.service daemon_reload=yes

@@ -1,6 +1,7 @@
 ---
 - hosts:
-    - ibm
+    # - ibm
+    - vm
 
   become: yes
   vars:
@@ -12,6 +13,7 @@
     - system
     - git
     - fish
+    - cfproxy
     - cypress
     - chrome
-    - pgkehle.proxy-setup
+    # - pgkehle.proxy-setup

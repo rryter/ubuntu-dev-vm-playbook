@@ -1,4 +1,4 @@
-- name: "[GIT] Create configs"
+- name: "Create configs"
   template:
     src: "{{ item }}.j2"
     dest: "{{dotfiles_user_home}}/{{ item }}"

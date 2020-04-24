@@ -1,4 +1,4 @@
-- name: "[Cypress] Install Dependencies"
+- name: "Install Dependencies"
   # apt is our module. It installs debian packages. Here we are passing an
   # `` variable, which is the item from `with_items`
   apt: pkg=

@@ -1,0 +1,17 @@
+- name: "install cfproxy"
+  npm:
+    name: "@twy-gmbh/conditional-forward-proxy"
+    global: yes
+    executable: /home/rryter/.nvm/versions/node/v14.0.0/bin/npm
+    state: latest
+
+- name: "install cfproxy as a service"
+  template:
+    src: cfproxy.j2
+    dest: /etc/systemd/system/cfproxy.service
+
+- name: "start cfproxy"
+  systemd:
+    state: started
+    name: cfproxy.service
+    daemon_reload: yes
