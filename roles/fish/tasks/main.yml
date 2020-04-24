@@ -10,5 +10,9 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - fish
-- name: [Fish] customizing
-  - shell: 
+
+- name: "[Fish] Copy custom fish files."
+  synchronize:
+    src: templates
+    dest: "{{dotfiles_user_home}}/.config/fish"
+    dirs: yes
